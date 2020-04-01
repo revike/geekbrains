@@ -16,7 +16,7 @@ def input_data(file):
         if data == '':
             break
         else:
-            with open('file.txt', 'a', encoding='utf-8') as f:
+            with open(file, 'a', encoding='utf-8') as f:
                 f.write(data + '\n')
     return read_data(file)
 

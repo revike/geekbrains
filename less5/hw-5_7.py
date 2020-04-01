@@ -20,7 +20,6 @@ def read_file(file):
     """Читаем файл"""
     with open(file, 'r', encoding='utf-8') as f:
         res = f.read().split('\n')
-        print(res) #del
         return profit(res)
 
 
@@ -37,9 +36,6 @@ def profit(res):
             result_prof.append(prof.split()[0] + ' ' + str(profit))
         else:
             result_les.append(prof.split()[0] + ' ' + str(profit))
-    print(result) # del
-    print(result_prof) # del
-    print(result_les) # del
     result_ave = average_profit(result_prof) # словарь со средней прибылью
     return list_dict(result, result_ave)
 
@@ -50,7 +46,6 @@ def average_profit(result_prof):
     for ave_prof in result_prof:
         res += int(ave_prof.split()[1])
     result = res / len(result_prof)
-    print({"average_profit": int(result)}) # del
     return {"average_profit": int(result)}
 
 
@@ -62,7 +57,6 @@ def list_dict(result, result_ave):
         total_dict[i.split()[0]] = int(i.split()[1])
     total.append(total_dict)
     total.append(result_ave)
-    print(total)  # del
     return write_json(total)
 
 
