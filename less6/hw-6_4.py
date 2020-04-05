@@ -8,12 +8,12 @@
 Выполните вызов методов и также покажите результат.
 """
 
+
 class Car:
-	def __init__(self, speed, color, name, is_police=False):
+	def __init__(self, speed, color, name):
 		self.speed = speed
 		self.color = color
 		self.name = name
-		self.is_police = is_police
 
 	def go(self):
 		print(f'Car {self.name.title()} color {self.color} go!')
@@ -29,22 +29,37 @@ class Car:
 
 
 class TownCar(Car):
+	def __init__(self, speed, color, name):
+		super().__init__(speed, color, name)
+
 	def show_speed(self):
 		if self.speed > 60:
 			print('Превышение скорости!')
 
+
 class SportCar(Car):
-	pass
+	def __init__(self, speed, color, name):
+		super().__init__(speed, color, name)
+
 
 class WorkCar(Car):
+	def __init__(self, speed, color, name):
+		super().__init__(speed, color, name)
+
 	def show_speed(self):
 		if self.speed > 40:
 			print('Превышение скорости!')
 
+
 class PoliceCar(Car):
+	def __init__(self, speed, color, name, is_police):
+		self.is_police = is_police
+		super().__init__(speed, color,name)
+
 	def police(self):
-		if self.is_police == True:
+		if self.is_police:
 			print(f'{self.name.title()} is Police Car')
+
 
 TownCar(70, 'write', 'audi').go()
 TownCar(70, 'write', 'audi').turn('left')
